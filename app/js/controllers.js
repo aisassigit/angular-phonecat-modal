@@ -27,11 +27,11 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Ph
 
 phonecatControllers.controller('PhoneModalDetailCtrl',['$scope','$routeParams','Phone','$modal','modalService',
     function($scope, $routeParams, Phone, $modal,modalService){
-
+        $scope.$on('handleBroadcast',function(){
+            $scope.open(modalService.phoneId)
+        });
         $scope.open = function (phoneId) {
-
             $scope.phone = Phone.get({phoneId:phoneId}, function(phone) {
-
                 var modalInstance = $modal.open({
                     scope:$scope,
                     templateUrl: 'partials/modal-detail.html',
@@ -42,23 +42,14 @@ phonecatControllers.controller('PhoneModalDetailCtrl',['$scope','$routeParams','
                         }
                     }
                 });
-
             });
-
-
         };
-
         var ModalInstanceCtrl = function ($scope, $modalInstance) {
             $scope.ok = function () {
                 $modalInstance.close($scope);
             };
-
             $scope.cancel = function () {
                 $modalInstance.dismiss('cancel');
             };
         };
-
-        $scope.$on('handleBroadcast',function(){
-            $scope.open(modalService.phoneId)
-        });
 }]);
