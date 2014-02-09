@@ -8,7 +8,8 @@ var phonecatApp = angular.module('phonecatApp', [
   'phonecatAnimations',
   'phonecatControllers',
   'phonecatFilters',
-  'phonecatServices'
+  'phonecatServices',
+  'services.breadcrumbs'
 ]);
 
 phonecatApp.config(['$routeProvider',
@@ -30,3 +31,8 @@ phonecatApp.config(['$routeProvider',
         redirectTo: '/phones'
       });
   }]);
+
+phonecatApp.controller('AppCtrl', ['$scope','breadcrumbs','$location', function($scope,breadcrumbs,$location) {
+    $scope.location = $location;
+    $scope.breadcrumbs = breadcrumbs;
+}]);
