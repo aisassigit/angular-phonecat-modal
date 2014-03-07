@@ -1,4 +1,4 @@
-# AngularJS Phone Catalog Tutorial Application + UI/UX updates
+# AngularJS Phone Catalog Tutorial Application + UI/UX updates - modal
 
 ## Overview
 This is the original AngularJS tutorial application found here:
